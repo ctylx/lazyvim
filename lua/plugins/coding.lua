@@ -43,18 +43,6 @@ return {
     end,
   },
 
-  -- telescope.nvim
-  {
-    "telescope.nvim",
-    dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      config = function()
-        require("telescope").load_extension("fzf")
-      end,
-    },
-  },
-
   -- LuaSnip
   {
     "L3MON4D3/LuaSnip",
@@ -77,5 +65,20 @@ return {
         update_n_lines = "gsn",
       },
     },
+  },
+
+  -- hop.nvim
+  {
+    "phaazon/hop.nvim",
+    branch = "v2", -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+    end,
+  },
+
+  -- vim.doge
+  {
+    "kkoomen/vim-doge",
   },
 }
