@@ -35,3 +35,7 @@ vim.keymap.set("i", "<TAB>", "<Plug>(doge-comment-jump-forward)")
 vim.keymap.set("i", "<S-TAB>", "<Plug>(doge-comment-jump-backward)")
 vim.keymap.set("x", "<TAB>", "<Plug>(doge-comment-jump-forward)")
 vim.keymap.set("x", "<S-TAB>", "<Plug>(doge-comment-jump-backward)")
+
+-- cmd + s to save
+vim.keymap.set("i", "jk", "<ESC>", { silent = true })
+vim.keymap.set({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
