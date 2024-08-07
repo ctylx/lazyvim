@@ -39,7 +39,3 @@ vim.keymap.set("x", "<S-TAB>", "<Plug>(doge-comment-jump-backward)")
 -- cmd + s to save
 vim.keymap.set("i", "jk", "<ESC>", { silent = true })
 vim.keymap.set({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
-
--- neogen
-local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("n", "<Leader>nf", ":lua require('neogen').generate()<CR>", opts)
