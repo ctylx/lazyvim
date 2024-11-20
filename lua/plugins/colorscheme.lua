@@ -48,7 +48,8 @@ return {
         cache = false, -- generate cache with :CyberdreamBuildCache and clear with :CyberdreamClearCache
 
         theme = {
-          variant = "auto", -- use "light" for the light variant. Also accepts "auto" to set dark or light colors based on the current value of `vim.o.background`
+          variant = "default", -- use "light" for the light variant. Also accepts "auto" to set dark or light colors based on the current value of `vim.o.background`
+          saturation = 1,
           highlights = {
             -- Highlight groups to override, adding new groups is also possible
             -- See `:h highlight-groups` for a list of highlight groups or run `:hi` to see all groups and their current values
@@ -132,11 +133,24 @@ return {
     },
   },
 
+  -- everforest
+  {
+    "sainnhe/everforest",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- Optionally configure and load the colorscheme
+      -- directly inside the plugin declaration.
+      vim.g.everforest_enable_italic = true
+      -- vim.cmd.colorscheme("everforest")
+    end,
+  },
+
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa",
+      colorscheme = "everforest",
     },
   },
 }
