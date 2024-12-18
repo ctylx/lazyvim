@@ -22,4 +22,9 @@ return {
     main = "ibl",
     commit = "29be0919b91fb59eca9e90690d76014233392bef",
   },
+
+  -- vim-visual-multi
+  {
+    "mg979/vim-visual-multi",
+  },
 }
