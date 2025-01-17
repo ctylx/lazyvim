@@ -24,7 +24,12 @@ return {
   },
 
   -- vim-visual-multi
+  -- {
+  --   "mg979/vim-visual-multi",
+  -- },
+
+  -- vim-multiple-cursors
   {
-    "mg979/vim-visual-multi",
+    "terryma/vim-multiple-cursors",
   },
 }

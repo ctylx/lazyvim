@@ -21,74 +21,6 @@ return {
     "EdenEast/nightfox.nvim",
   },
 
-  -- add cyberdream
-  {
-    "scottmckendry/cyberdream.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("cyberdream").setup({
-        -- Enable transparent background
-        transparent = true,
-
-        -- Enable italics comments
-        italic_comments = true,
-
-        -- Replace all fillchars with ' ' for the ultimate clean look
-        hide_fillchars = false,
-
-        -- Modern borderless telescope theme - also applies to fzf-lua
-        borderless_telescope = true,
-
-        -- Set terminal colors used in `:terminal`
-        terminal_colors = true,
-
-        -- Use caching to improve performance - WARNING: experimental feature - expect the unexpected!
-        -- Early testing shows a 60-70% improvement in startup time. YMMV. Disables dynamic light/dark theme switching.
-        cache = false, -- generate cache with :CyberdreamBuildCache and clear with :CyberdreamClearCache
-
-        theme = {
-          variant = "default", -- use "light" for the light variant. Also accepts "auto" to set dark or light colors based on the current value of `vim.o.background`
-          saturation = 1,
-          highlights = {
-            -- Highlight groups to override, adding new groups is also possible
-            -- See `:h highlight-groups` for a list of highlight groups or run `:hi` to see all groups and their current values
-
-            -- Example:
-            Comment = { fg = "#696969", bg = "NONE", italic = true },
-
-            -- Complete list can be found in `lua/cyberdream/theme.lua`
-          },
-
-          -- Override a highlight group entirely using the color palette
-          overrides = function(colors) -- NOTE: This function nullifies the `highlights` option
-            -- Example:
-            return {
-              Comment = { fg = colors.green, bg = "NONE", italic = true },
-              ["@property"] = { fg = colors.magenta, bold = true },
-            }
-          end,
-
-          -- Override a color entirely
-          colors = {
-            -- For a list of colors see `lua/cyberdream/colours.lua`
-            -- Example:
-            bg = "#000000",
-            green = "#00ff00",
-            magenta = "#ff00ff",
-          },
-        },
-
-        -- Disable or enable colorscheme extensions
-        extensions = {
-          telescope = true,
-          notify = true,
-          mini = true,
-        },
-      })
-    end,
-  },
-
   -- add catppuccin
   {
     "catppuccin/nvim",
@@ -146,11 +78,62 @@ return {
     end,
   },
 
+  -- monokai-pro
+  {
+    "loctvl842/monokai-pro.nvim",
+    config = function()
+      require("monokai-pro").setup({
+        transparent_background = false,
+        terminal_colors = true,
+        devicons = true, -- highlight the icons of `nvim-web-devicons`
+        styles = {
+          comment = { italic = true },
+          keyword = { italic = true }, -- any other keyword
+          type = { italic = true }, -- (preferred) int, long, char, etc
+          storageclass = { italic = true }, -- static, register, volatile, etc
+          structure = { italic = true }, -- struct, union, enum, etc
+          parameter = { italic = true }, -- parameter pass in function
+          annotation = { italic = true },
+          tag_attribute = { italic = true }, -- attribute of tag in reactjs
+        },
+        filter = "octagon", -- classic | octagon | pro | machine | ristretto | spectrum
+        -- Enable this will disable filter option
+        day_night = {
+          enable = false, -- turn off by default
+          day_filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+          night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
+        },
+        inc_search = "background", -- underline | background
+        background_clear = {
+          -- "float_win",
+          "toggleterm",
+          "telescope",
+          -- "which-key",
+          "renamer",
+          "notify",
+          -- "nvim-tree",
+          -- "neo-tree",
+          -- "bufferline", -- better used if background of `neo-tree` or `nvim-tree` is cleared
+        }, -- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree", "bufferline"
+        plugins = {
+          bufferline = {
+            underline_selected = false,
+            underline_visible = false,
+          },
+          indent_blankline = {
+            context_highlight = "default", -- default | pro
+            context_start_underline = false,
+          },
+        },
+      })
+    end,
+  },
+
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "everforest",
+      colorscheme = "monokai-pro",
     },
   },
 }
