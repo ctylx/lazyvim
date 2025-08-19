@@ -51,3 +51,5 @@ require("lazy").setup({
     },
   },
 })
+
+require("mini.icons").setup()
