@@ -4,4 +4,4 @@
 
 -- cmd + s to save
 vim.keymap.set("i", "jk", "<ESC>", { silent = true })
-vim.keymap.set({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+vim.keymap.set({ "i", "x", "n", "s" }, "<D-s>", "<ESC>:w<CR>", { desc = "Save file" })
