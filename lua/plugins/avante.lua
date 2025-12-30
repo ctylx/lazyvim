@@ -13,7 +13,7 @@ return {
     -- this file can contain specific instructions for your project
     instructions_file = "avante.md",
     -- for example
-    provider = "claude",
+    provider = "glm",
     providers = {
       claude = {
         endpoint = "https://api.anthropic.com",
@@ -27,6 +27,17 @@ return {
       moonshot = {
         endpoint = "https://api.moonshot.ai/v1",
         model = "kimi-k2-0711-preview",
+        timeout = 30000, -- Timeout in milliseconds
+        extra_request_body = {
+          temperature = 0.75,
+          max_tokens = 32768,
+        },
+      },
+      glm = {
+        __inherited_from = "openai",
+        api_key_name = "GLM_API_KEY",
+        endpoint = "https://open.bigmodel.cn/api/coding/paas/v4",
+        model = "glm-4.7",
         timeout = 30000, -- Timeout in milliseconds
         extra_request_body = {
           temperature = 0.75,
